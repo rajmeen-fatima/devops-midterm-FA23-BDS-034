@@ -80,16 +80,16 @@ pipeline {
 
     post {
         always {
-            emailext(
+            mail(
                 to: 'qasimalik@gmail.com',
                 subject: "DevOps Midterm FA23-BDS-034 - ${currentBuild.currentResult}",
                 body: """Student: FA23-BDS-034
 Build: ${env.BUILD_NUMBER}
 Status: ${currentBuild.currentResult}
 Commit: ${env.GIT_COMMIT}
+Jenkins Job: ${env.BUILD_URL}
 """
             )
         }
     }
 }
-
